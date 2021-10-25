@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      #info, p{
+        margin: 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>objetos personalizados</title>
+</head>
+<body>
+
+  <h2>Criando objetos, inserindo elementos e alterando suas propriedades</h2>
+
+  <p>let person1 = new Object();</p>
+  <p>let person2 = {};</p>
+
+  <button id="bt-1">person1</button>
+  <button id="bt-2">person2</button>
+  <button id="bt-3">person 2 - altera nome</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    /* Criando objetos com new */
+    let person1 = new Object();
+    person1.name = 'Thiago';
+
+    /* Criando objetos - forma literal */
+    /* this no objeto JS */
+    /* Quando utilizamos a palavra reservada this dentro do objeto, ela se refere ao próprio objeto e não ao objeto global window. */
+
+    let person2 = {
+        nome:'Lucas',
+        sobrenome: 'Monteiro',
+        idade: 25,
+        casado: false,
+        assist: person1.name,
+        array: ['profissional','design', 'website'],
+        nomeCompleto: function () {
+            return `${this.nome} ${this.sobrenome}`;
+        },
+        useThis: function(){
+            return this.idade;
+        }
+      }
+
+    let info = document.getElementById("info");
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      console.clear();
+      console.log("Nome: " + person1.name);
+      info.innerHTML = "Nome: " + person1.name;
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      console.clear();
+
+      console.log("Nome completo: " + person2.nomeCompleto());
+      console.log("Idade: " + person2.idade + " anos");
+      console.log("Assistente técnico: " + person2.assist);
+      info.innerHTML = "Nome completo: " + person2.nomeCompleto() + "<br>";
+      info.innerHTML += "Idade: " + person2.idade + " anos<br>";
+      info.innerHTML += "Assistente técnico: " + person2.assist;
+    });
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      console.clear();
+
+      /* Alterando nome */
+      person2.nome = 'Henrique';
+
+      console.log("person2 - nome alterado para: " + person2.nome);
+      info.innerHTML = "person2 - nome alterado para: " + person2.nome + "<br>";
+    })
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3, label{
+        margin: 10px;
+      }
+      button{
+        padding: 5px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      p, #lengthArea{
+        margin: 10px;
+        font-size: 18px;
+      }
+      input, textarea{
+        margin: 10px 10px;
+        font-size: 18px;
+        display: block;
+      }
+      #info{
+        margin: 10px;
+        font-size: 20px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+      }
+  </style>
+  <title>Elementos de formulário - Parte 1</title>
+</head>
+<body>
+
+  <h2>Elementos de formulário - Parte 1</h2>
+
+  <button id="bt-1">Form attributes</button>
+  <button id="bt-2">Alter action</button>
+  <button id="bt-3">Validation</button>
+
+  <br><br>
+
+  <form name="form1" id="form1" method="post" action="./controller.php">
+    <label for="nome">Name: </label>
+    <input type = "text" name = "inpText" id = "inpText">
+    <label for="txtArea">Message: </label>
+    <textarea name = "txtArea" id = "txtArea" rows="4"></textarea>
+    <div id = "lengthArea"></div>
+    <button type = "submit" id = "bt-submit">Submit</button>
+    <button type = "reset" id = "bt-clear">Clear</button>
+  </form>
+
+  <div id="info"></div>
+
+  <script src="script1.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info, p{
+        margin: 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>objeto window</title>
+</head>
+<body>
+
+  <h2>Objeto window</h2>
+  <hr>
+  <p>var message1 = "Hello World"</p>
+  <p>let message2 = "Hello World"</p>
+
+  <button id="bt-1">window.message1</button>
+  <button id="bt-2">window.message2</button>
+  <button id="bt-3">window.document.URL</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    /* O window. pode ser omitido. */
+    /*  Palavra reservada this  */
+    /* Quando utilizamos a palavra this no escopo global, a palavra se refere ao objeto window. */
+
+    let info = document.getElementById("info");
+    var message1 = "Hello world";
+    let message2 = "Hello world"
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      if(window.message1){
+        info.innerHTML = window.message1;
+      } else {
+        info.innerHTML = "A variável message1 não foi encontrada no objeto Window";
+      }
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      if(window.message2){
+        info.innerHTML = window.message2;
+      } else {
+        info.innerHTML = "A variável message2 não foi encontrada no objeto Window";
+      }
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      /* Para invocar métodos do objeto window, basta colocarmos window.nomeDoMétodo: */
+      info.innerHTML = window.document.URL;
+    })
+
+    console.log(window);
+
+  </script>
+
+</body>
+</html>

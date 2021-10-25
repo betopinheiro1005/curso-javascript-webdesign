@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 20px;
+        margin: 10px;
+      }
+      #info{
+        margin: 10px;
+        font-size: 20px;
+      }
+      #varName {
+        color: red;
+        font-weight: bold;
+        font-style: italic;
+      }
+  </style>
+  <title>var x let</title>
+</head>
+<body onload = "iniciar()">
+
+  <h2>Declaração de variáveis com var e let</h2>
+
+  <hr>
+
+  <h3>Loop for</h3>
+
+  <div id = "info"></div>
+
+  <button id="bt-1">var</body>
+  <button id="bt-2">let</button>
+
+  <script>
+
+    /* o var não respeita o escopo e o let sim, por isso o recomendável é utilizar let. */
+
+    if(true){
+        var name1='Webdesign';
+        let name2='roberto';
+        console.log(name2);
+    }
+
+    console.log("--------------------------");
+
+    function iniciar(){
+        for(let i=0; i<10; i++){
+            document.getElementById("info").innerHTML += `${i} <br>`;
+        }
+    }
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+        document.getElementById("info").innerHTML = "";
+        console.clear();
+        iniciar();
+
+        for(var i = 0; i < 10; i++){
+            console.log(i);
+        }
+
+        if (typeof i === 'undefined') {
+            console.log(`Após o loop for - variável i não mais existe`);
+            document.getElementById("info").innerHTML += `<p>Após o loop for - variável i não mais existe</p>`;
+        } else {
+            console.log(`Apos o loop for - variável i continua existindo e seu valor é ${i}`);
+            document.getElementById("info").innerHTML += `<p>Apos o loop for - variável <span id = 'varName'>i</span> continua existindo e seu valor é ${i}</p>`;
+        }
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+        document.getElementById("info").innerHTML = "";
+        console.clear();
+        iniciar();
+
+        for(let i = 0; i < 10; i++){
+            console.log(i);
+        }
+
+        if (typeof i === 'undefined') {
+            console.log(`Após o loop for - variável i não mais existe`);
+            document.getElementById("info").innerHTML += `<p>Após o loop for - variável <span id = 'varName'>i</span> não mais existe</p>`;
+        } else {
+            console.log(`Apos o loop for - variável i continua existindo e seu valor é ${i}`);
+            document.getElementById("info").innerHTML += `<p>Após o loop for - variável <span id = 'varName'>i</span> continua existindo e seu valor é ${j}</p>`;
+        }
+    })
+
+    console.log("--------------------------");
+
+  </script>
+
+</body>
+</html>

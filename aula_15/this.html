@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      #info, p{
+        margin: 10px;
+        font-size: 20px;
+      }
+      .destaque{
+        color: red;
+      }
+  </style>
+  <title>this</title>
+</head>
+<body>
+
+  <h2>this</h2>
+
+  <button id="bt-1">em funções</button>
+  <button id="bt-2">em objetos</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    let info = document.getElementById("info");
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      /* Por padrão a palavra reservada this faz referência ao objeto global window, inclusive quando usado dentro de funções. */
+
+      info.innerHTML = "Faz referência ao objeto window";
+
+      function teste(){
+          console.log(this);
+      }
+
+      teste();
+
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+
+      /* Quando utilizamos a palavra reservada dentro de uma propriedade de um objeto ela faz referência ao objeto */
+
+      let obj={
+          name:'Thiago',
+          func: function(){
+              return this.name;
+          }
+      }
+      console.log(obj.func());
+      info.innerHTML = "Faz referência ao objeto em que se encontra:<br>this.name = " + obj.func();
+
+    });
+
+
+  </script>
+
+</body>
+</html>

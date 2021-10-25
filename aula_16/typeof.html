@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      #info, p{
+        margin: 10px;
+        font-size: 18px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+      }
+  </style>
+  <title>typeof</title>
+</head>
+<body>
+
+  <h2>typeof</h2>
+
+  <pre>
+    numero_alunos = 50;
+    curso = "Análise e desenvolvimento de dados";
+    aprovado = true;
+    faltas = null;
+    alunos = [
+      ["UNIP", "Anchieta", "São Paulo", "SP"], numero_alunos, curso, null, {nome: "João", sobrenome: "Ribeiro", idade: 32},
+      {nome: "Augusto", sobrenome: "Lopes", idade: 26}, {nome: "Marta", sobrenome: "Medeiros", idade: 19},
+      {nome: "Ana", sobrenome: "Gomes", idade: 24}
+    ];
+    notas = {
+        aluno: alunos[0], trimestre: 2, notas: {engenharia_software: 50,
+        sistemas_operacionais : 70, banco_dados: 75, POO: 85}
+    }</pre>
+
+  <button id="bt-1">tipos de dados</button>
+  <button id="bt-2">percorrendo o array alunos</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    let info = document.getElementById("info");
+
+    'use strict';
+
+    let numero_alunos, curso, aprovado, faltas, alunos, notas;
+
+    numero_alunos = 50;
+    curso = "Análise e desenvolvimento de dados";
+    aprovado = true;
+    faltas = null;
+    alunos = [
+      ["UNIP", "Anchieta", "São Paulo", "SP"], numero_alunos, curso, null, {nome: "João", sobrenome: "Ribeiro", idade: 32},
+      {nome: "Augusto", sobrenome: "Lopes", idade: 26}, {nome: "Marta", sobrenome: "Medeiros", idade: 19},
+      {nome: "Ana", sobrenome: "Gomes", idade: 24}
+    ];
+    notas = {
+        aluno: alunos[0], trimestre: 2, notas: {engenharia_software: 50,
+        sistemas_operacionais : 70, banco_dados: 75, POO: 85}
+    }
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+
+      info.innerHTML = "";
+      console.clear();
+
+      (function(win,doc){
+          /* typeof retorna o tipo de dado do elemento que estamos testando. */
+          console.log("numero_alunos: " + typeof numero_alunos);
+          console.log("curso: " + typeof curso);
+          console.log("aprovado: " + typeof aprovado);
+          console.log("faltas: " + typeof faltas);
+          console.log("alunos: " + typeof alunos);
+          console.log("notas: " + typeof notas);
+
+          info.innerHTML =
+          `<pre>
+            Tipo de cada uma das variáveis:
+
+            numero_alunos: ................ ${typeof numero_alunos};
+            curso: ........................ ${typeof curso};
+            aprovado: ..................... ${typeof aprovado};
+            faltas: ....................... ${typeof faltas};
+            alunos: ....................... ${typeof alunos};
+            notas: ........................ ${typeof notas};
+          </pre>`;
+
+      })(window, document);
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      info.innerHTML = "";
+      console.clear();
+      /* Para filtrar dados com typeof podemos percorrer o array e fazer a verificação: */
+      for(let i = 0; i < alunos.length; i++){
+        if(typeof alunos[i] === "object"){
+            if(Array.isArray(alunos[i])){
+              console.log(`${alunos[i]} é um array.`);
+              info.innerHTML += `alunos[${i}] é um array.` + "<br>";
+            } else if(alunos[i] == null){
+              console.log(`${alunos[i]} é null.`);
+              info.innerHTML += `alunos[${i}] é um objeto null.` + "<br>";
+            } else {
+              console.log(`${alunos[i]} é um objeto do tipo literal.`);
+              info.innerHTML += `alunos[${i}] é um objeto do tipo literal.` + "<br>";
+            }
+          } else {
+              console.log(`${alunos[i]} não é um objeto.`);
+              info.innerHTML += `alunos[${i}] não é um objeto.` + "<br>";
+          }
+      };
+    });
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body{
+          font-size: 20px;
+          margin: 10px;
+        }
+        button{
+          padding: 10px;
+          font-size: 16px;
+          margin: 10px;
+        }
+        #info{
+          margin: 10px;
+        }
+    </style>
+    <title>Projeto inicial no Javascript</title>
+</head>
+
+<body>
+
+    <div id="info"></div>
+
+    <button id="bt1" onclick = "exibeInfo()">Forma inline</button>
+    <button id="bt2">Forma incorporada</button>
+    <button id="bt3">Arquivo externo</button>
+
+    <script src="javascript.js"></script>
+
+    <script>
+        document.getElementById("bt2").addEventListener("click", function(){
+            document.getElementById("info").innerHTML = "<p>script executado de forma incorporada entre as tags head do html</p>";
+        });
+
+        function exibeInfo(){
+            document.getElementById("info").innerHTML = "<p>script executado de forma inline entre as tags html</p>";
+        }
+    </script>
+
+</body>
+</html>

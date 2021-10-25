@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      #info, p{
+        margin: 10px;
+        font-size: 20px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+      }
+  </style>
+  <title>this</title>
+</head>
+<body>
+
+  <h2>use strict</h2>
+
+  <button id="bt-1">exemplo 1</button>
+  <button id="bt-2">examplo 2</button>
+  <button id="bt-3">examplo 3</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    'use strict';
+
+    /* Quando utilizamos a expressão use strict dentro de nosso script, indicamos ao navegador que queremos que o javascript seja lido com regras estritas (strict mode). */
+    /* O use strict corrige certos bugs da linguagem e consequentemente traz mais segurança para sua aplicação. */
+    /* Algumas correções: não permite que variáveis sejam criadas sem serem declaradas, não permite que variáveis ou constantes sejam criadas com nomes de palavras reservadas. A palavra reservada this retorna undefined quando usada dentro de funções. */
+
+    let info = document.getElementById("info");
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      /* Não permite que variáveis sejam criadas sem serem declaradas */
+      try {
+        x = 10;   /* tipo de variável não declarado */
+        console.log(x);
+      } catch (e) {
+        info.innerHTML = "<span class='destaque'>Erro</span>: " + e;
+      }
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      try {
+        info.innerHTML = "";
+        console.clear();
+
+        /* Não permite que variáveis ou constantes sejam criadas com nomes de palavras reservadas */
+
+        // let eval = 10;   /* usando uma palavra reservada como nome de uma variável. Sem 'use strict' aceita. Com 'use string' gera erro */
+      } catch (e) {
+        info.innerHTML = "<span class='destaque'>Erro</span>: " + e;
+      }
+    });
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      info.innerHTML = "";
+      console.clear();
+
+      /* A palavra reservada this retorna undefined quando usada dentro de funções. */
+
+      function teste(){
+          console.log(this);
+          info.innerHTML = "<span class='destaque2'>this</span> dentro de uma função: <span class='destaque'>" + this + "</span>";
+      }
+
+      teste();
+    });
+
+  </script>
+
+</body>
+</html>

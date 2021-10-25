@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body{
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        h2, h3{
+          margin: 15px 0px 15px 10px;
+        }
+        button{
+          padding: 10px;
+          font-size: 18px;
+          margin: 20px 10px;
+          cursor: pointer;
+        }
+        select{
+          display: inline;
+          font-size: 18px;
+          margin: 20px 5px ;
+        }
+        input, textarea{
+          margin: 10px 10px;
+          font-size: 18px;
+          display: block;
+        }
+        input[type=checkbox], input[name=gender], label{
+          display: inline;
+          margin: 10px 5px 10px 10px;
+          font-size: 18px;
+        }
+        input[type=radio]{
+          margin-right: 0px;
+        }
+        p, #lengthArea, img{
+          margin: 15px 10px;
+          font-size: 15px;
+        }
+        #info{
+          font-size: 18px;
+          margin: 20px 10px;
+        }
+        .destaque{
+          color: red;
+        }
+        .destaque2{
+          color: blue;
+        }
+        .checkText{
+          font-size: 18px;
+          margin-left: 5px;
+        }
+    </style>
+    <title>Ajax com PHP</title>
+</head>
+<body>
+
+    <h2>Ajax com PHP</h2>
+
+    <form name="form1" id="form1" method="post" action="./controller.php">
+      <label for="name">Name: </label>
+      <input type = "text" name="name" id="name" placeholder="Write your name">
+      <label for="message">Message: </label>
+      <textarea name = "message" id = "message" rows="5"></textarea>
+      <div id = "lengthArea"></div>
+      <label for="gender">Gender: </label>
+      <input type="radio" name="gender" value="male"><span class="checkText"> male</span>
+      <input type="radio" name="gender" value="female"><span class="checkText"> female</span><br>
+      <label for="color">Color: </label>
+      <select name="color" id="color">
+          <option value="">Select</option>
+          <option value="red">red</option>
+          <option value="green">green</option>
+          <option value="blue">blue</option>
+      </select><br>
+
+      <!-- <div class="gallery"></div><br>
+      <input type="file" name="img[]" id="img" multiple><br> -->
+
+      <input type="checkbox" name="confirmation" id="confirmation" value="confirmation"> I accept the terms<br>
+
+      <button type="submit" name="btn-submit" id="btn-submit">Submit</button>
+      <button name="btn-clear" id="btn-clear" type="reset">Clear</button>
+    </form>
+
+    <div id="info"></div>
+
+    <script src="script1.js"></script>
+</body>
+</html>

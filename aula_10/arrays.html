@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      #info, p{
+        margin: 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>Arrays</title>
+</head>
+<body>
+
+  <h2>Arrays</h2>
+
+  <p>let arr1 = new Array("Thiago", "webdesign", 17)</p>
+  <p>let arr2 = ["Thais", "teacher", 38]</p>
+  <p>let arrAss = { name: 'Regina', age: 22 }</p>
+
+  <button id="bt-1">arr1</button>
+  <button id="bt-2">arr2</button>
+  <button id="bt-3">arr1 - add</button>
+  <button id="bt-4">arr1 - alter age</button>
+  <button id="bt-5">arr1 - quantity</button>
+  <button id="bt-6">array associativo</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    let info = document.getElementById("info");
+
+    let arr1 = new Array("Thiago", "webdesign", 17);
+    let arr2 = ["Thais","teacher",38];
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      console.clear();
+      info.innerHTML = "";
+
+      /* array formal */
+      arr1 = new Array("Thiago", "webdesign", 17);
+      console.log(arr1);
+      arr1.forEach((elem, index) => info.innerHTML += `arr1[${index}] = ${elem}` + "<br>");
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      console.clear();
+      info.innerHTML = "";
+
+      /* array literal */
+      console.log(arr2);
+      arr2.forEach((elem, index) => info.innerHTML += `arr2[${index}] = ${elem}` + "<br>");
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      console.clear();
+      info.innerHTML = "";
+
+      /* Inserindo um novo elemento no array */
+      arr1[3] = true;
+      console.log(arr1);
+      arr1.forEach((elem, index) => info.innerHTML += `arr1[${index}] = ${elem}` + "<br>");
+    })
+
+    document.getElementById("bt-4").addEventListener("click", function(){
+      console.clear();
+      info.innerHTML = "";
+
+      /* Alterando um elemento do array */
+      arr1[2] = 18;
+      console.log(arr1);
+      arr1.forEach((elem, index) => info.innerHTML += `arr1[${index}] = ${elem}` + "<br>");
+    })
+
+    document.getElementById("bt-5").addEventListener("click", function(){
+      console.clear();
+      info.innerHTML = "";
+
+      /* Quantidade de elementos do array */
+      console.log("Número de elementos de arr1: " + arr1.length);
+      info.innerHTML = "Número de elementos de arr1: " + arr1.length;
+    })
+
+    document.getElementById("bt-6").addEventListener("click", function(){
+      console.clear();
+      info.innerHTML = "";
+
+      /* Array associativo */
+      let arrAss = {
+        name: 'Regina',
+        age: 22
+      }
+      console.log(arrAss);
+      info.innerHTML = "Nome: " + arrAss.name + "<br>";
+      info.innerHTML += "Idade: " + arrAss.age + "<br>";
+    })
+
+
+
+
+    console.log(arrayAss['name']);
+
+    console.log(array1.constructor);  /* execute no navegador Firefox */
+    console.log(array1.prototype);  /* execute no navegador Firefox */
+
+  </script>
+
+</body>
+</html>

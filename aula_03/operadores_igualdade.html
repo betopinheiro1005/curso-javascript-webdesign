@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info{
+        margin: 20px 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>operadores de igualdade</title>
+</head>
+<body>
+
+  <h2>Operadores de igualdade</h2>
+
+  <button id="bt-1">==</button>
+  <button id="bt-2">===</button>
+  <button id="bt-3">!=</button>
+  <button id="bt-4">!==</button>
+  <button id="bt-5">></button>
+  <button id="bt-6">>=</button>
+  <button id="bt-7"><</button>
+  <button id="bt-8"><=</button>
+
+  <div id="info"></div>
+
+  <script>
+    let numberA = 3;
+    let numberB = '3';
+    let numberC = 2;
+    let numberD = 3;
+    let stringA = 'Webdesign em Foco';
+
+    //Operadores de igualdade
+
+    console.log(numberA == numberB);
+    console.log(numberA === numberB);
+    console.log(numberA != numberB);
+    console.log(numberA !== numberB);
+    console.log(numberA > numberC);
+    console.log(numberA >= numberD);
+    console.log(numberA < numberC);
+    console.log(numberA <= numberD);
+
+    let info = document.getElementById("info");
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      info.innerHTML = `${numberA} == '${numberB}' ........ ${numberA == numberB}`;
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      info.innerHTML = `${numberA} === '${numberB}' ........ ${numberA === numberB}`;
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      info.innerHTML = `${numberA} != '${numberB}' ........ ${numberA != numberB}`;
+    })
+
+    document.getElementById("bt-4").addEventListener("click", function(){
+      info.innerHTML = `${numberA} !== '${numberB}' ........ ${numberA !== numberB}`;
+    })
+
+    document.getElementById("bt-5").addEventListener("click", function(){
+      info.innerHTML = `${numberA} > ${numberC} ........ ${numberA > numberC}`;
+    })
+
+    document.getElementById("bt-6").addEventListener("click", function(){
+      info.innerHTML = `${numberA} >= ${numberD} ........ ${numberA >= numberD}`;
+    })
+
+    document.getElementById("bt-7").addEventListener("click", function(){
+      info.innerHTML = `${numberA} < ${numberC} ........ ${numberA < numberC}`;
+    })
+
+    document.getElementById("bt-8").addEventListener("click", function(){
+      info.innerHTML = `${numberA} <= ${numberD} ........ ${numberA <= numberD}`;
+    })
+
+  </script>
+
+</body>
+</html>

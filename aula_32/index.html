@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body{
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        h2, h3{
+          margin: 15px 0px 15px 10px;
+        }
+        button{
+          padding: 10px;
+          font-size: 18px;
+          margin: 0px 10px;
+          cursor: pointer;
+        }
+        input{
+          margin: 20px 10px 5px 10px;
+          font-size: 18px;
+          display: block;
+        }
+        #info, .response{
+          font-size: 18px;
+          margin: 20px 10px;
+        }
+        .destaque{
+          color: red;
+        }
+        .destaque2{
+          color: blue;
+        }
+    </style>
+    <title>Ajax com NodeJS</title>
+</head>
+<body>
+
+    <h2>Ajax com NodeJS</h2>
+
+    <form name="form1" id="form1" method="post" action="http://localhost:3000">
+        <input type="text" name="name" id="name" placeholder="Write your name:"><br>
+        <button type="submit">Send</button>
+
+        <div class="response"></div>
+    </form>
+
+    <script src="script1.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body{
+          font-family: Arial, Helvetica, sans-serif;
+        }
+        h2, h3{
+          margin: 15px 0px 15px 10px;
+        }
+        button, input[type=submit]{
+          padding: 5px;
+          font-size: 18px;
+          margin: 0px 10px;
+          cursor: pointer;
+        }
+        input{
+          margin: 20px 10px 5px 10px;
+          font-size: 18px;
+          display: block;
+        }
+        #result, .response{
+          font-size: 18px;
+          margin: 20px 10px;
+        }
+        .bar{
+          margin: 20px 10px;
+          width:90%;
+          height: 20px;
+        }
+        .progress{
+          width:0;
+          background: blue;
+          height: 20px;
+        }
+        .destaque{
+          color: red;
+        }
+        .destaque2{
+          color: blue;
+        }
+    </style>
+    <title>Ajax com PHP</title>
+</head>
+
+<body>
+
+  <h2>Ajax com PHP</h2>
+
+  <form name="form1" id="form1" method="post" action="controller.php" enctype="multipart/form-data">
+      <input type="file" name="files" id="files"><br>
+      <input type="submit" name="btn" id="btn" value="Salvar">
+  </form>
+
+  <div class="bar"><div class="progress"></div></div>
+
+  <div id="result"></div>
+  <script src="script1.js"></script>
+</body>
+</html>

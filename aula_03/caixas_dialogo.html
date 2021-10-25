@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info{
+        margin: 20px 10px;
+        font-size: 20px;
+      }
+      #varName {
+        color: red;
+        font-weight: bold;
+        font-style: italic;
+      }
+  </style>
+  <title>caixas de diálogo</title>
+</head>
+<body>
+
+  <button id = "bt-1">alert</body>
+  <button id = "bt-2">confirm</button>
+  <button id = "bt-3">prompt</button>
+
+  <div id = "info"></div>
+
+  <script>
+
+    let info = document.getElementById("info");
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      info.innerHTML = "Você clicou em uma caixa de diálogo alert";
+      alert("Esse é um alerta!");
+    });
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      let resposta = confirm("Deseja mesmo apagar este dado?\nEsse dado será excluido!");
+      if(resposta){
+        info.innerHTML = "Dado excluído com sucesso!";
+      } else {
+        info.innerHTML = "Operação cancelada!";
+      }
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      let data = prompt("Qual sua data de nascimento?","dd/mm/yyyy");
+      if(data){
+        info.innerHTML = "Data de nascimento: " + data;
+      } else {
+        info.innerHTML = "Operação cancelada!";
+      }
+    })
+
+  </script>
+
+</body>
+</html>

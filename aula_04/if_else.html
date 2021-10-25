@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info{
+        margin: 20px 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>estrutura condicional if - else if - else</title>
+</head>
+<body>
+
+    <h2>Estrutura condicional if - else if - else</h2>
+    <hr>
+    <h3>Clique no botão correspondente a sua faixa de idade</h3>
+
+    <button id="bt-1">Menos de 16 anos</button>
+    <button id="bt-2">16 anos</button>
+    <button id="bt-3">Entre 17 e 69 anos</button>
+    <button id="bt-4">70 anos ou mais</button>
+
+    <div id="info"></div>
+
+  <script>
+
+    let info = document.getElementById("info");
+    let faixa;
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+        faixa = 1;
+        checkIdade(faixa);
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+        faixa = 2;
+        checkIdade(faixa);
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+        faixa = 3;
+        checkIdade(faixa);
+    })
+
+    document.getElementById("bt-4").addEventListener("click", function(){
+        faixa = 4;
+        checkIdade(faixa);
+    })
+
+    function checkIdade(faixa){
+        console.clear();
+        if(faixa == 1){
+            console.log("Menos de 16 anos de idade:\nNão pode votar");
+            info.innerHTML = "Menos de 16 anos de idade:<br>Não pode votar";
+        } else if(faixa == 2){
+            console.log("16 anos de idade:\nO voto é opcional");
+            info.innerHTML = "16 anos de idade:<br>O voto é opcional";
+        } else if(faixa == 3){
+            console.log("Entre 17 e 69 anos de idade:\nO voto é obrigatório");
+            info.innerHTML = "Emtre 17 e 69 anos:<br>O voto é obrigatório";
+        }  else {
+            console.log("70 anos ou mais:\nO voto é opcional");
+            info.innerHTML = "70 anos ou mais:<br>O voto é opcional";
+        }
+    }
+
+  </script>
+
+</body>
+</html>

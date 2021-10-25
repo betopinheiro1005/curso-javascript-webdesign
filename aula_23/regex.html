@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 10px;
+      }
+      img{
+        margin: 10px 0px 10px 10px;
+      }
+      button{
+        padding: 5px;
+        font-size: 16px;
+        margin: 5px;
+      }
+      img {
+        width: 250px;
+      }
+      p{
+        margin: 10px;
+        font-size: 18px;
+      }
+      #info{
+        margin: 10px;
+        font-size: 22px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+        letter-spacing: 1px;
+      }
+  </style>
+  <title>Expressões regulares - Parte 1</title>
+</head>
+<body>
+
+  <h2>Expressões regulares - Parte 1</h2>
+
+  <button id="bt-1">/e/</button>
+  <button id="bt-2">/e/g</button>
+  <button id="bt-3">/e/gi</button>
+  <button id="bt-4">/Período/gi</button>
+  <button id="bt-5">/p|e/gi</button>
+  <button id="bt-6">/[pe]/gi</button>
+  <button id="bt-7">/[A-Z]/g</button>
+  <button id="bt-8">/[A-Z0-9]/g</button>
+  <button id="bt-9">/(Período)|[0-9]/g</button>
+  <button id="bt-10">/(Período)|(15)/g</button>
+  <button id="bt-11">/(Período)|(1500+)/g</button>
+  <button id="bt-12">/r{2}/g</button>
+  <button id="bt-13">/rri?/g</button>
+
+  <p id="msg">A História do Brasil é dividida, consensualmente e para fins didáticos, em três períodos principais: Período Colonial, Período Imperial e Período Republicano. Entretanto, tais divisões existem apenas para organizar esquematicamente os principais conteúdos sobre a formação do Brasil, tendo como ponto de partida o ano do descobrimento, isto é, 15000000000000. Entretanto, é sabido que, no território em que se “formou o Brasil”, havia, antes, várias tribos nativas com aspectos culturais muito particulares. Mesmo antes da formação dessas tribos, houve também povos primitivos que deixaram os vestígios de sua cultura em vários lugares do território brasileiro (Veja Pré-história brasileira) há milhares de anos. A esse período da História do Brasil cujo tema central é o estudo dos povos nativos, isto é, dos povos indígenas, dá-se o nome de Período Pré-Cabralino. Essa nomenclatura faz referência a Pedro Álvares Cabral, cuja chegada em terras brasileiras é considerada o marco inaugural da História do Brasil. A partir de então, de 1500 em diante, sobretudo a partir da década de 1530, teve início a fase do Brasil Colônia.</p>
+
+  <hr>
+
+  <div id="info"></div>
+
+  <script src="script1.js"></script>
+
+</body>
+</html>

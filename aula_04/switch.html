@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info{
+        margin: 20px 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>estrutura condicional switch</title>
+</head>
+<body>
+
+    <h2>Estrutura condicional switch</h2>
+    <hr>
+    <h3>Dia da semana</h3>
+
+    <button id="bt-1">primeiro</button>
+    <button id="bt-2">segundo</button>
+    <button id="bt-3">terceiro</button>
+    <button id="bt-4">quarto</button>
+    <button id="bt-5">quinto</button>
+    <button id="bt-6">sexto</button>
+    <button id="bt-7">sétimo</button>
+    <button id="bt-8">oitavo</button>
+
+    <div id="info"></div>
+
+    <script>
+
+        let info = document.getElementById("info");
+        let diaSemana;
+
+        document.getElementById("bt-1").addEventListener("click", function(){
+            diaSemana = 1;
+            checkDiaSemana(diaSemana);
+        })
+
+        document.getElementById("bt-2").addEventListener("click", function(){
+            diaSemana = 2;
+            checkDiaSemana(diaSemana);
+        })
+
+        document.getElementById("bt-3").addEventListener("click", function(){
+            diaSemana = 3;
+            checkDiaSemana(diaSemana);
+        })
+
+        document.getElementById("bt-4").addEventListener("click", function(){
+            diaSemana = 4;
+            checkDiaSemana(diaSemana);
+        })
+
+        document.getElementById("bt-5").addEventListener("click", function(){
+            diaSemana = 5;
+            checkDiaSemana(diaSemana);
+        })
+
+        document.getElementById("bt-6").addEventListener("click", function(){
+            diaSemana = 6;
+            checkDiaSemana(diaSemana);
+        })
+
+        document.getElementById("bt-7").addEventListener("click", function(){
+            diaSemana = 7;
+            checkDiaSemana(diaSemana);
+        })
+
+        document.getElementById("bt-8").addEventListener("click", function(){
+            diaSemana = 8;
+            checkDiaSemana(diaSemana);
+        })
+
+        function checkDiaSemana(diaSemana){
+            console.clear();
+            info.innerHTML = "";
+
+            switch (diaSemana){
+                case 1:
+                    console.log("Domingo");
+                    info.innerHTML = "Domingo";
+                    break;
+                case 2:
+                    console.log("Segunda-Feira");
+                    info.innerHTML = "Segunda-Feira";
+                    break;
+                case 3:
+                    console.log("Terça-Feira");
+                    info.innerHTML = "Terça-Feira";
+                    break;
+                case 4:
+                    console.log("Quarta-Feira");
+                    info.innerHTML = "Quarta-Feira";
+                    break;
+                case 5:
+                    console.log("Quinta-Feira");
+                    info.innerHTML = "Quinta-Feira";
+                    break;
+                case 6:
+                    console.log("Sexta-Feira");
+                    info.innerHTML = "Sexta-Feira";
+                    break;
+                case 7:
+                    console.log("Sábado");
+                    info.innerHTML = "Sábado";
+                    break;
+                default:
+                    console.log("Dia da semana inválido!");
+                    info.innerHTML = "Dia da semana inválido!";
+                    break;
+            }
+        }
+
+    </script>
+
+</body>
+</html>

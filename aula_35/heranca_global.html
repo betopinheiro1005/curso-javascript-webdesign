@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herança através do escopo global no JS</title>
+</head>
+<body>
+
+  <h2>Herança através do escopo global no JS</h2>
+
+    <script src="script1.js"></script>
+    <script src="script2.js"></script>
+
+    <!-- Abaixo é feito  o relacionamento utilizando o código inline através da variável obj3. -->
+
+    <script>
+        let obj3 = new app(100,200);
+        console.log(obj3.result());
+        console.log(window);
+    </script>
+
+</body>
+</html>

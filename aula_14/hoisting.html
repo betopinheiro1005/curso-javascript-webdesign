@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      #info, p{
+        margin: 10px;
+        font-size: 20px;
+      }
+      .destaque{
+        color: red;
+      }
+  </style>
+  <title>Hoisting</title>
+</head>
+<body>
+
+  <h2>Hoisting</h2>
+
+  <button id="bt-1">função literal</button>
+  <button id="bt-2">função anônima</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    /* Hoisting; Quando necessário, o javascript iça automaticamente variáveis e
+    funções literais para o topo do escopo. Isso não é feito com funções expressadas
+    (funções anônimas atribuídas a variáveis) */
+
+
+      document.getElementById("bt-1").addEventListener("click", teste1);
+      document.getElementById("bt-2").addEventListener("click", teste2);
+
+      let info = document.getElementById("info");
+
+      function teste1(){
+        try {
+          info.innerHTML = "";
+          console.clear();
+
+          let a = 2;
+          let b = 3;
+
+          console.log(soma(a, b));
+          info.innerHTML += "Função soma executada com sucesso. Retorna " + soma(a, b);
+
+          function soma(x, y){
+            return x + y;
+          }
+
+        } catch (e) {
+          console.log("Erro: " + e);
+        }
+      }
+
+     function teste2(){
+        try {
+
+            info.innerHTML = "";
+            console.clear();
+
+            let a = 2;
+            let b = 3;
+
+            soma2(a, b);
+            info.innerHTML += "Função anônima atribuída a uma variável. A operação não é realizada!";
+
+            let soma2 = function (x, y){
+              return x + y;
+            }
+
+        } catch (e) {
+          console.log("Erro: " + e);
+          info.innerHTML = "<span class='destaque'>Erro</span>: " + e;
+        }
+     }
+
+  </script>
+
+</body>
+</html>

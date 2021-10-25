@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info, p{
+        margin: 20px 10px;
+        font-size: 20px;
+      }
+      #varName {
+        color: red;
+        font-weight: bold;
+        font-style: italic;
+      }
+  </style>
+  <title>operadores lógicos</title>
+</head>
+<body>
+
+  <h2>Operadores lógicos</h2>
+
+  <p>let numberA = 3</p>
+  <p>let numberC = '3'</p>
+
+  <button id = "bt-1">and (&&)</body>
+  <button id = "bt-2">or (||)</button>
+  <button id = "bt-3">not (!)</button>
+
+  <div id = "info"></div>
+
+  <script>
+
+    let numberA = 3;
+    let numberC = '3';
+
+    let info = document.getElementById("info");
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      console.clear();
+      //Operador lógico AND
+      if(numberA === 3 && numberC===3){
+          console.clear();
+          console.log("numberA === 3 && numberC===3 ......... true");
+          info.innerHTML = "numberA === 3 && numberC===3 ......... true";
+      } else {
+          console.log("numberA === 3 && numberC===3 ......... false");
+          info.innerHTML = "numberA === 3 && numberC===3 ......... false";
+      }
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      console.clear();
+      //Operador lógico OR
+      if(numberA === 3 || numberC===3){
+          console.log("numberA === 3 || numberC===3 ......... true");
+          info.innerHTML = "numberA === 3 || numberC===3 ......... true";
+      } else{
+          console.log("numberA === 3 || numberC===3 ......... false");
+          info.innerHTML = "numberA === 3 || numberC===3 ......... false";
+      }
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      console.clear();
+      //Operador lógico NOT
+      if(!(numberC === 3)){
+          console.clear();
+          console.log(`!(numberC === 3) ......... true`);
+          info.innerHTML = `!(numberC === 3) ......... true`;
+      } else {
+          console.log(`!(numberC === 3) ......... false`);
+          info.innerHTML = `!(numberC === 3) ......... false`;
+      }
+    })
+
+  </script>
+
+</body>
+</html>

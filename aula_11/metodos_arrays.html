@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 10px 10px;
+      }
+      table{
+        margin: 10px;
+        width: 75%;
+        border: none;
+      }
+      tr, td{
+        border: none;
+        font-size: 16px;
+      }
+      td{
+        padding: 3px;
+      }
+      button{
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info{
+        margin: 10px;
+        font-size: 18px;
+      }
+      p{
+        margin: 10px;
+        font-size: 14px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+      }
+  </style>
+  <title>métodos para manipulação de arrays</title>
+</head>
+<body>
+
+    <h3>Métodos para manipulação de arrays - Parte 1</h3>
+
+    <table>
+        <tr>
+            <td>let arrInicial = <br>[1, 2, 3, 4, 5];</td>
+            <td>let arr2 = <br>["a", "b", "c"];</td>
+            <td>let arr3 = <br>[6, 7, 8, 9];</td>
+            <td>let str1 = <br>"curso de javascript"</td>>
+            <td>let arrFinal = <br>[];</td>
+            <td>let arrDobro = <br>[];</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <table>
+        <tr>
+            <td><span class="destaque2">concat 12:</span> concatena arr1 com arr2</td>
+            <td><span class="destaque2">concat 13:</span> concatena arr1 com arr3</td>
+        </tr>
+        <tr>
+            <td><span class="destaque2">every:</span> verifica se todos os elementos em arrFinal são números</td>
+            <td><span class="destaque2">filter:</span> números em arrFinal que são maiores que 3</td>
+        </tr>
+        <tr>
+            <td><span class="destaque2">forEach:</span> preenche arrDobro com arrFinal (números são dobrados)</td>
+            <td><span class="destaque2">indexOf:</span> índice da 1ª ocorrência de "a" em str1, se existir</td>
+        </tr>
+        <tr>
+            <td><span class="destaque2">lastIndexOf:</span> índice da última ocorrência de "a" em str1, se existir</td>
+            <td></td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <button id="bt-1">arrFinal</button>
+    <button id="bt-2">arrDobro</button>
+    <button id="bt-3">concat 12</button>
+    <button id="bt-4">concat 13</button>
+    <button id="bt-5">every</button>
+    <button id="bt-6">filter</button>
+    <button id="bt-7">forEach</button>
+    <button id="bt-8">indexOf</button>
+    <button id="bt-9">lastIndexOf</button>
+
+    <div id="info"></div>
+
+
+    <script>
+
+    let arr1 = [1, 2, 3, 4, 5];
+    let arr2 = ["a", "b", "c"];
+    let arr3 = [6, 7, 8, 9];
+    let str1 = "curso de javascript";
+    let arrFinal = [];
+    let arrDobro = [];
+    let filterX;
+
+    let info = document.getElementById("info");
+
+    function exibeArrayFinal(){
+
+        if(arrFinal.length === 0){
+            info.innerHTML += "arrFinal está vazio";
+        } else {
+            arrFinal.forEach((elem, index) => {
+                if(typeof elem == "number"){
+                    info.innerHTML += `arrFinal[${index}] = ${elem}` + "<br>"
+                } else if(typeof elem == "string"){
+                    info.innerHTML += `arrFinal[${index}] = "${elem}"` + "<br>"
+                }
+            });
+        }
+    }
+
+    function exibeArrayDobro(){
+
+        if(arrDobro.length === 0){
+            info.innerHTML += "arrDobro está vazio";
+        } else {
+            arrDobro.forEach((elem, index) => {
+                if(typeof elem == "number"){
+                    info.innerHTML += `arrDobro[${index}] = ${elem}` + "<br>"
+                } else if(typeof elem == "string"){
+                    info.innerHTML += `arrDobro[${index}] = "${elem}"` + "<br>"
+                }
+            });
+        }
+    }
+
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        console.log(arrFinal);
+        exibeArrayFinal();
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        console.log(arrDobro);
+        exibeArrayDobro();
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        /* método concat */
+        /* Realiza a concatenação entre dois arrays */
+
+        arrFinal = arr1.concat(arr2);
+        console.log(arrFinal);
+        exibeArrayFinal();
+    })
+
+    document.getElementById("bt-4").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        /* método concat */
+        /* Realiza a concatenação entre dois arrays */
+
+        arrFinal = arr1.concat(arr3);
+        console.log(arrFinal);
+        exibeArrayFinal();
+    })
+
+    document.getElementById("bt-5").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        /* método every */
+        /* Percorre os elementos para realização de alguma tarefa */
+
+        let everyX;
+
+        everyX = arrFinal.every(
+            function verifyElements(elem,ind,obj) {
+                return (typeof elem == "number");  /* verifica se todos os elementos do array são números */
+            }
+        );
+
+        if(arrFinal.length > 0){
+            console.log(arrFinal);
+            console.log("Todos os elementos do array são números? " + everyX);  /* false */
+
+            exibeArrayFinal();
+
+            info.innerHTML += "<br>Todos os elementos do array são números? <span class='destaque'>" + everyX + "</span><br><br>";
+        } else {
+            console.log("arrFinal está vazio");
+            info.innerHTML = "arrFinal está vazio";
+        }
+
+    })
+
+    document.getElementById("bt-6").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        /* método filter */
+        /* Realiza um filtro de acordo com os parâmetros passados. */
+
+        filterX = arrFinal.filter(
+            function verifyElements(elem, index, obj) {
+                return elem > 3;
+            }
+        );
+
+        console.log("Elementos de arrFinal > 3:\n" + filterX);
+        info.innerHTML = `Elementos de arrFinal > 3: <br><span class='destaque'>${filterX}</span>`;
+
+    })
+
+    document.getElementById("bt-7").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrDobro = [];
+
+        arrFinal.forEach((elem, index) => {
+            if(typeof elem == "number"){
+                arrDobro.push(2 * elem);
+            } else {
+                arrDobro.push(elem);
+            }
+        });
+
+        console.log(arrDobro);
+        exibeArrayDobro();
+
+    })
+
+    document.getElementById("bt-8").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        /* indexOf */
+        /* Retorna a posição do elemento procurado. Pra verificar se um elemento existe no array basta testar a igualdade com -1. Esse método verifica tanto o valor quanto o tipo de dado. */
+
+        let indexOfX = str1.indexOf("a");
+
+        if(indexOfX == -1){
+            console.log(`"a" não existe em str1`);
+            info.innerHTML = `<span class="destaque">"a"</span> não existe em <span class="destaque">str1</span>`;
+        } else {
+            console.log(`"a" existe em str1. A primeira ocorrência é em index ` + indexOfX + " da string");
+            info.innerHTML = `<span class="destaque">"a"</span> existe em <span class="destaque">str1</span>. A primeira ocorrência é em índice <span class="destaque">` + indexOfX + "</span> da string.";
+        }
+    })
+
+    document.getElementById("bt-9").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        /* indexOf */
+        /* Retorna a posição do elemento procurado. Pra verificar se um elemento existe no array basta testar a igualdade com -1. Esse método verifica tanto o valor quanto o tipo de dado. */
+
+        let indexOfX = str1.lastIndexOf("a");
+
+        if(indexOfX == -1){
+            console.log(`"a" não existe em str1`);
+            info.innerHTML = `<span class="destaque">"a"</span> não existe em <span class="destaque">str1</span>`;
+        } else {
+            console.log(`"a" existe em str1. A última ocorrência é em index ` + indexOfX + " da string");
+            info.innerHTML = `<span class="destaque">"a"</span> existe em <span class="destaque">str1</span>. A última ocorrência é em índice <span class="destaque">` + indexOfX + "</span> da string.";
+        }
+    })
+
+
+
+    // filterX = arrFinal.filter(
+    //     function verifyElements(elem,ind,obj) {
+    //         return (typeof elem == "string");  /* retorna os elementos do tipo string */
+    //     }
+    // );
+
+    // console.log(filterX);
+
+
+    /* ForEach */
+    /* Outro método que percorre todo o array exibindo os dados desejados. No exemplo abaixo vamos exibir os índices maiores que 3. */
+
+    // let data="";
+
+    // let forEachX=arrFinal.forEach(
+    //     function verifyElements(elem, ind, obj) {
+    //         if(ind > 3){
+    //             data+="Índice "+ind+" : "+elem+'\n';
+    //         }
+    //     }
+    // );
+
+    // console.log(data);
+
+
+    /* indexOf */
+    /* Retorna a posição do elemento procurado. Pra verificar se um elemento existe no array basta testar a igualdade com -1. Esse método verifica tanto o valor quanto o tipo de dado. */
+
+    // let indexOfX=arrFinal.indexOf("a");
+    // if(indexOfX == -1){
+    //   alert("Esse dado não existe");
+    // } else {
+    //   console.log("O elemento está na posição " + indexOfX + " do array");
+    // }
+
+  </script>
+
+</body>
+</html>

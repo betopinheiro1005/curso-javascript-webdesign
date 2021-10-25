@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      #info, p{
+        margin: 10px;
+        font-size: 18px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+      }
+  </style>
+  <title>JSON</title>
+</head>
+<body>
+
+  <h2>JSON - Introdução</h2>
+
+  <pre>
+    let str_json = '{"name":"John", "age":30, "city":"New York"}';
+
+    let obj = {
+      name: 'John',
+      age: 30,
+      city: 'New York'
+    } </pre>
+
+  <button id="bt-1">JSON.parse(str_json)</button>
+  <button id="bt-2">JSON.stringify(obj)</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    let info = document.getElementById("info");
+
+    'use strict';
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+
+      info.innerHTML = "";
+      console.clear();
+      /* JSON.parse() converte uma string JSON em objeto */
+      let str_json = '{"name":"John", "age":30, "city":"New York"}';  /* string JSON */
+
+      const obj = JSON.parse(str_json);
+      console.log(obj);
+      info.innerHTML += "<span class='destaque2'>str_json</span> foi convertido em um <span class='destaque2'>objeto</span> ............... " + obj;
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      info.innerHTML = "";
+      console.clear();
+
+      /* JSON.stringify() converte um objeto em uma string JSON */
+
+      let obj = {
+        name: 'John',
+        age: 30,
+        city: 'New York'
+      }
+
+      const str_json = JSON.stringify(obj);
+      console.log(str_json);
+      info.innerHTML += `<span class='destaque'>obj</span> foi convertido em uma <span class='destaque2'>string JSON</span> ............. '${str_json}'`;
+
+    });
+
+  </script>
+
+</body>
+</html>

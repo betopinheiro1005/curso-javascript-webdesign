@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 10px 10px;
+      }
+      table{
+        margin: 10px;
+        width: 75%;
+        border: none;
+      }
+      tr, td{
+        border: none;
+        font-size: 16px;
+      }
+      td{
+        padding: 3px;
+      }
+      button{
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info{
+        margin: 10px;
+        font-size: 18px;
+      }
+      p{
+        margin: 10px;
+        font-size: 14px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+      }
+  </style>
+  <title>métodos para manipulação de arrays</title>
+</head>
+<body>
+
+    <h3>Métodos para manipulação de arrays - Parte 2</h3>
+
+    <p>let arrInicial = [1, 2, 3, 4, 5, 6, 7, 8];</p>
+    <p>let arrNew = [];</p>
+
+    <hr>
+
+    <table>
+        <tr>
+            <td><span class="destaque2">join:</span> transforma um array em uma string</td>
+            <td><span class="destaque2">push:</span> adiciona um novo elemento no final de um array</td>
+        </tr>
+        <tr>
+            <td><span class="destaque2">pop:</span> remove o último elemento de um array</td>
+            <td><span class="destaque2">map:</span> executa uma ação para os elementos de um array</td>
+        </tr>
+        <tr>
+            <td><span class="destaque2">some:</span> testa uma condição dentro de um array</td>
+            <td><span class="destaque2">reverse:</span> inverte os elementos de um array</td>
+        </tr>
+    </table>
+
+    <hr>
+
+    <button id="bt-1">arrInicial</button>
+    <button id="bt-2">arrNew</button>
+    <button id="bt-3">join</button>
+    <button id="bt-4">push</button>
+    <button id="bt-5">pop</button>
+    <button id="bt-6">map</button>
+    <button id="bt-7">some</button>
+    <button id="bt-8">reverse</button>
+
+    <div id="info"></div>
+
+    <script>
+
+    let arrInicial = [1, 2, 3, 4, 5, 6, 7, 8];
+    let arrNew = [];
+
+    let info = document.getElementById("info");
+
+    function exibeArrayInicial(){
+
+        if(arrInicial.length === 0){
+            info.innerHTML += "arrIncial está vazio";
+        } else {
+            arrInicial.forEach((elem, index) => {
+                if(typeof elem == "number"){
+                    info.innerHTML += `arrInicial[${index}] = ${elem}` + "<br>"
+                } else if(typeof elem == "string"){
+                    info.innerHTML += `arrInicial[${index}] = "${elem}"` + "<br>"
+                }
+            });
+        }
+    }
+
+    function exibeArrayNew(){
+
+        if(arrNew.length === 0){
+            info.innerHTML += "arrNew está vazio";
+        } else {
+            arrNew.forEach((elem, index) => {
+                if(typeof elem == "number"){
+                    info.innerHTML += `arrNew[${index}] = ${elem}` + "<br>"
+                } else if(typeof elem == "string"){
+                    info.innerHTML += `arrNew[${index}] = "${elem}"` + "<br>"
+                }
+            });
+        }
+    }
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        console.log(arrInicial);
+        exibeArrayInicial();
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        console.log(arrNew);
+        exibeArrayNew();
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrString1 = arrInicial.join();
+        console.log("String com elementos de arrInicial separados por vírgula: " + arrString1);
+        info.innerHTML += "String com elementos de <span class='destaque2'>arrInicial</span> separados por vírgula:<br><span class='destaque'>" + arrString1 + "</span><br><br>";
+
+        arrString2 = arrInicial.join('-');
+        console.log("String com elementos de arrInicial separados por '-': " + arrString2);
+        info.innerHTML += "String com elementos de <span class='destaque2'>arrInicial</span> separados por '-':<br><span class='destaque'>" + arrString2 + "</span><br><br>";
+
+    })
+
+    document.getElementById("bt-4").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrNew = [];
+        arrNew.push(9);
+        arrNew.push(10);
+        arrNew.push(11);
+        arrNew.push(12);
+        arrNew.push(13);
+        console.log(arrNew);
+        exibeArrayNew();
+    })
+
+    document.getElementById("bt-5").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrNew.pop();
+        console.log(arrNew);
+        exibeArrayNew();
+    })
+
+    document.getElementById("bt-6").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "<span class='destaque2'>arrNew</span> com elementos de <span class='destaque2'>arrInicial</span> multiplicados por 3:<br><br>";
+
+        arrNew = arrInicial.map((elem) => {
+          return elem * 3;
+        });
+
+        exibeArrayNew();
+    })
+
+    document.getElementById("bt-7").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        let teste1 = arrInicial.some(function verifyElements(elem, ind, obj){
+          return (elem > 10);  /* retorna false */
+        });
+
+        let teste2 = arrInicial.some(function verifyElements(elem, ind, obj){
+          return (elem % 2 == 0);  /* retorna true */
+        });
+
+
+        console.log("Existe elemento maior que 10 em arrInicial: " + teste1);
+        console.log("Existe elemento par em arrInicial: " + teste2);
+        info.innerHTML += "Existe elemento maior que 10 em <span class='destaque2'>arrInicial</span>: <span class='destaque'>" + teste1 + "</span><br>";
+        info.innerHTML += "Existe elemento par em <span class='destaque2'>arrInicial</span>: <span class='destaque'>" + teste2 + "</span><br>";
+    })
+
+    document.getElementById("bt-8").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrInicial.reverse();
+        console.log(arrInicial);
+
+        exibeArrayInicial();
+
+    })
+
+  </script>
+
+</body>
+</html>

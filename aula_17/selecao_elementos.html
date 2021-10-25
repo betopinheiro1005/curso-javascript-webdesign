@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 16px;
+      }
+      h2{
+        margin: 20px 10px;
+        text-transform: uppercase;
+      }
+      h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px;
+      }
+      img{
+        width: 270px;
+        margin: 10px 20px 10px 10px;
+        float: left;
+      }
+      #info{
+        margin: 10px;
+        font-size: 18px;
+      }
+      p{
+        margin: 10px;
+        font-size: 16px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+      }
+      .img{
+         visibility: visible;
+      }
+  </style>
+  <title>Select Elments</title>
+</head>
+<body>
+
+  <h2>Selecionando elementos</h2>
+
+  <button id="bt-1">div1</button>
+  <button id="bt-2">button b</button>
+  <button id="bt-3">img</button>
+  <button id="bt-4">h2</button>
+  <button id="bt-5">div2</button>
+  <button id="bt-6">parágrafo 1</button>
+  <button id="bt-7">parágrafo 3</button>
+  <button id="bt-8">title de div1</button>
+
+  <hr>
+
+  <div id="div1" title="div1 é uma div com id">
+    <h3>div1</h3>
+  </div>
+
+  <p>parágrafo 1</p>
+  <p>parágrafo 2</p>
+  <p>parágrafo 3</p>
+
+  <div class="divClass">
+    <h3>div2</h3>
+  </div>
+
+  <img src="tricolor.jpg" class="img" name="spfc" alt="São Paulo"><br>
+
+  <button class="btn">button a</button>
+  <button class="btn">button b</button>
+  <button class="btn">button c</button>
+
+  <hr>
+
+  <div id="info"></div>
+
+  <script>
+
+    (function readyJS(win,doc){
+        'use strict';
+
+        let info, sel_1, sel_2, sel_3, sel_4, sel_5, sel_6, sel_7, sel_8;
+
+        info = doc.getElementById("info");
+        sel_1 = doc.getElementById('div1');   /* retorna um único elemento */
+        sel_2 = doc.getElementsByClassName('btn');  /* retorna uma coleção com 3 botões */
+        sel_3 = doc.getElementsByName('spfc');  /* retorna uma coleção com 1 imagem */
+        sel_4 = doc.getElementsByTagName('h2');  /* retorna uma coleção com 2 títulos h2 */
+        sel_5 = doc.getElementsByClassName('divClass');   /* retorna uma coleção com 1 div */
+        sel_6 = doc.querySelector('p');   /* retorna um elemento: o primeiro parágrafo */
+        sel_7 = doc.querySelectorAll('p');   /* retorna uma coleção com 3 parágrafos */
+        sel_8 = doc.getElementById('div1').getAttribute('title');   /* retorna o conteúdo do atributo title de div1 */
+
+        doc.getElementById("bt-1").addEventListener("click", function(){
+          limpa();
+          console.clear();
+          console.log(sel_1);
+          sel_1.style.backgroundColor = "yellow";
+          info.innerHTML += "- uso de document.getElementById():<br><br>";
+          info.innerHTML += "<span class='destaque2'>document.getElementById('div1')</span><br>";
+          info.innerHTML += "retorna um único elemento<br>";
+        })
+
+        doc.getElementById("bt-2").addEventListener("click", function(){
+          limpa();
+          console.clear();
+          console.log(sel_2);
+          sel_2[1].style.backgroundColor = "yellow";
+          info.innerHTML += "- uso de document.getElementsbyClassName():<br><br>";
+          info.innerHTML += "<span class='destaque2'>document.getElementsbyClassName('btn')</span><br>";
+          info.innerHTML += "retorna uma coleção com 3 elementos<br>";
+          info.innerHTML += "selecionado o elemento de índice 1<br>";
+        })
+
+        doc.getElementById("bt-3").addEventListener("click", function(){
+          limpa();
+          console.clear();
+          console.log(sel_3);
+          sel_3[0].style.border = "5px solid yellow";
+          info.innerHTML += "- uso de document.getElementsByName():<br><br>";
+          info.innerHTML += "<span class='destaque2'>document.getElementsByName('spfc')</span><br>";
+          info.innerHTML += "retorna um NodeList com 1 elemento<br>";
+          info.innerHTML += "selecionado o elemento de índice 0<br>";
+        })
+
+        doc.getElementById("bt-4").addEventListener("click", function(){
+          limpa();
+          console.clear();
+          console.log(sel_4);
+          sel_4[0].style.backgroundColor = "yellow";
+          info.innerHTML += "- uso de document.getElementsByTagName():<br><br>";
+          info.innerHTML += "<span class='destaque2'>document.getElementsByTagName('h2')</span><br>";
+          info.innerHTML += "retorna uma coleção com 1 elemento<br>";
+          info.innerHTML += "selecionado o elemento de índice 0<br>";
+        })
+
+        doc.getElementById("bt-5").addEventListener("click", function(){
+          limpa();
+          console.clear();
+          console.log(sel_5);
+          sel_5[0].style.backgroundColor = "yellow";
+          info.innerHTML += "- uso de document.getElementsByClassName():<br><br>";
+          info.innerHTML += "<span class='destaque2'>document.getElementsByClassName('divClass')</span><br>";
+          info.innerHTML += "retorna uma coleção com 1 elemento<br>";
+          info.innerHTML += "selecionado o elemento de índice 0<br>";
+        })
+
+        doc.getElementById("bt-6").addEventListener("click", function(){
+          limpa();
+          console.clear();
+          console.log(sel_6);
+          sel_6.style.backgroundColor = "yellow";
+          info.innerHTML += "- uso de document.querySelector():<br><br>";
+          info.innerHTML += "<span class='destaque2'>document.querySelector('p')</span><br>";
+          info.innerHTML += "retorna um único elemento (o primeiro)<br>";
+        })
+
+        doc.getElementById("bt-7").addEventListener("click", function(){
+          limpa();
+          console.clear();
+          console.log(sel_7);
+          sel_7[2].style.backgroundColor = "yellow";
+          info.innerHTML += "- uso de document.querySelectorAll():<br><br>";
+          info.innerHTML += "<span class='destaque2'>document.querySelectorAll('p')</span><br>";
+          info.innerHTML += "retorna um NodeList com 3 elementos<br>";
+          info.innerHTML += "selecionado o elemento de indice 2<br>";
+        })
+
+        doc.getElementById("bt-8").addEventListener("click", function(){
+          limpa();
+          console.clear();
+          console.log(sel_8);
+          alert(sel_8);
+          info.innerHTML += "- uso de getElementById().getAttribute():<br><br>";
+          info.innerHTML += "<span class='destaque2'>doc.getElementById('div1').getAttribute('title')</span><br>";
+          info.innerHTML += "retorna o conteúdo do attributo title de div1<br>";
+          info.innerHTML += `title = "${sel_8}"`;
+        })
+
+        function limpa(){
+          info.innerHTML = "";
+          sel_1.style.backgroundColor = "white";
+          sel_2[1].style.backgroundColor = "rgb(239, 239, 239)";
+          sel_2[1].style.border = "1px solid rgb(118, 118, 118)";
+          sel_3[0].style.border = "none";
+          sel_4[0].style.backgroundColor = "white";
+          sel_5[0].style.backgroundColor = "white";
+          sel_6.style.backgroundColor = "white";
+          sel_7[2].style.backgroundColor = "white";
+        }
+
+    })(window, document);
+
+  </script>
+
+</body>
+</html>

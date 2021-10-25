@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      #info{
+        margin: 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>objetos personalizados</title>
+</head>
+<body>
+
+  <h2>Objetos personalizados</h2>
+
+  <button id="bt-1">Saldo inicial</button>
+  <button id="bt-2">Sacar 40</button>
+  <button id="bt-3">Depositar 70</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    /* Criando um objeto personalizado */
+
+    let person = {
+      name: 'Thiago',
+      age: 20,
+      cc: 123
+    }
+
+    let operation = {
+
+      sacar: function(saldo, valor){
+          return saldo-=valor;
+      },
+
+      depositar: function(saldo, valor){
+          return saldo+=valor;
+      }
+    }
+
+    let bank = {
+      person: person,
+      operation: operation,
+      saldo: 50
+    }
+
+    let value1 = 40;
+    let value2 = 70;
+
+    let info = document.getElementById("info");
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      console.clear();
+      console.log("Saldo inicial: " + bank.saldo);
+      info.innerHTML = "Saldo inicial: " + bank.saldo;
+    });
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      console.clear();
+      console.log(bank.person.name + " portador da conta "+ bank.person.cc + " realizou um saque no valor de " + value1 + " ficando com " + bank.operation.sacar(bank.saldo,value1));
+      info.innerHTML = bank.person.name + " portador da conta "+ bank.person.cc + " realizou um saque no valor de " + value1 + " ficando com " + bank.operation.sacar(bank.saldo,value1);
+    });
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      console.clear();
+      console.log(bank.person.name + " portador da conta "+ bank.person.cc + " realizou um depósito no valor de " + value2 + " ficando com " + bank.operation.depositar(bank.saldo,value2));
+      info.innerHTML = bank.person.name + " portador da conta "+ bank.person.cc + " realizou um depósito no valor de " + value2 + " ficando com " + bank.operation.depositar(bank.saldo,value2);
+    });
+
+  </script>
+
+</body>
+</html>

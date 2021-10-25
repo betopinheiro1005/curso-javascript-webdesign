@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+      }
+      #info{
+        margin: 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>Estruturas de repetição</title>
+</head>
+<body>
+
+    <h2>Laço for-in</h2>
+    <div id="info"></div>
+
+  <script>
+
+    let info = document.getElementById("info");
+
+    /* for in */
+    /* O laço for...in serve para percorremos dados dentro de arrays e objetos: */
+
+    let person = {
+        name:'Thiago',
+        age: 18,
+        city: 'New York'
+    }
+
+    for(key in person){
+        console.log(key);
+        info.innerHTML += key + "<br>";
+    }
+
+  </script>
+
+</body>
+</html>

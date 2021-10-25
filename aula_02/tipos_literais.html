@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2{
+        margin: 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px;
+      }
+      #info{
+        margin: 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>Tipos Literais</title>
+</head>
+<body>
+
+  <h2>Tipos literais</h2>
+
+  <button id="bt-1">number</button>
+  <button id="bt-2">decimal</button>
+  <button id="bt-3">boolean</button>
+  <button id="bt-4">string</button>
+  <button id="bt-5">array</button>
+  <button id="bt-6">função dentro de um objeto</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    let number = 1;
+
+    let pi=3.14;
+
+    let option=false;
+
+    let texto='Esse é meu 1º texto';
+
+    let arr=["fruta", "carro", 1, 'força'];
+
+    let obj={
+      prop1:'thiago',
+      prop2:'carro',
+      func:function(){
+        console.log("Executada função dentro de um objeto");
+        return "<p>Executada função dentro de um objeto</p>";
+      },
+      arr: [1,2,3,3]
+    };
+
+    console.log(number);
+    console.log(pi);
+    console.log(option);
+    console.log(texto);
+    console.log(arr);
+    console.log(obj);
+    obj.func();
+
+    let info = document.getElementById("info");
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      info.innerHTML = `<p>Variável tipo Number (número inteiro): ${number}</p>`;
+    });
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      info.innerHTML = `<p>Variável tipo Number (número decimal): ${pi}</p>`;
+    });
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      info.innerHTML = `<p>Variável tipo boolean: ${option}</p>`;
+    });
+
+    document.getElementById("bt-4").addEventListener("click", function(){
+      info.innerHTML = `<p>Variável tipo string: ${texto}</p>`;
+    });
+
+    document.getElementById("bt-5").addEventListener("click", function(){
+      info.innerHTML = `<p>Array: ${arr}</p>`;
+    });
+
+    document.getElementById("bt-6").addEventListener("click", function(){
+      info.innerHTML = obj.func();
+    });
+
+  </script>
+
+</body>
+</html>

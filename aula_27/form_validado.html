@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 10px 0px 0px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 20px 10px;
+        cursor: pointer;
+      }
+      select{
+        display: inline;
+        font-size: 18px;
+        margin: 20px 5px ;
+      }
+      input, textarea{
+        margin: 10px 10px;
+        font-size: 18px;
+        display: block;
+      }
+      input[type=checkbox], input[name=gender], label{
+        display: inline;
+        margin: 10px 5px 10px 10px;
+        font-size: 18px;
+      }
+      input[type=radio]{
+        margin-right: 0px;
+      }
+      p, #lengthArea, imb{
+        margin: 10px;
+        font-size: 15px;
+      }
+      #info{
+        font-size: 18px;
+        margin: 20px 10px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+        letter-spacing: 1px;
+      }
+      .checkText{
+        font-size: 18px;
+        margin-left: 5px;
+      }
+  </style>
+  <title>Validação de formulário</title>
+</head>
+<body>
+
+  <h2>Validação de formulário</h2>
+
+  <br>
+
+  <form name="form1" id="form1" method="post" action="./controller.php">
+    <label for="nome">Name: </label>
+    <input type = "text" name = "inpText" id = "inpText">
+    <label for="txtArea">Message: </label>
+    <textarea name = "txtArea" id = "txtArea" rows="5"></textarea>
+    <div id = "lengthArea"></div>
+    <label for="gender">Gender: </label>
+    <input type="radio" name="gender" value="Male"><span class="checkText"> Male</span>
+    <input type="radio" name="gender" value="Female"><span class="checkText"> Female</span><br>
+    <label for="sel">Color: </label>
+    <select name="sel" id="sel">
+        <option value="">Select</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+    </select><br>
+
+    <div class="gallery"></div><br>
+    <input type="file" name="img[]" id="img" multiple><br>
+
+    <input type="checkbox" name="check" id="check" value="confirmation"> I accept the terms<br>
+
+    <button name="btn-submit" id="btn-submit">Submit</button>
+    <button name="btn-clear" id="btn-clear" type="reset">Clear</button>
+  </form>
+
+  <div id="info"></div>
+
+  <script src="script1.js"></script>
+
+</body>
+</html>

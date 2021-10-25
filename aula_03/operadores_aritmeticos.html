@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info{
+        margin: 20px 10px;
+        font-size: 20px;
+      }
+  </style>
+  <title>Operadores aritmeticos</title>
+</head>
+<body>
+
+  <h2>Operadores aritméticos</h2>
+
+  <button id="bt-1">soma</button>
+  <button id="bt-2">subtração</button>
+  <button id="bt-3">multiplicação</button>
+  <button id="bt-4">potenciação</button>
+  <button id="bt-5">divisão</button>
+  <button id="bt-6">resto</button>
+  <button id="bt-7">concatenação</button>
+
+  <div id="info"></div>
+
+  <script>
+    let numberA = 3;
+    let numberB = 2;
+    let numberC = '3';
+    let stringA = 'Webdesign em Foco';
+
+    //Operadores aritiméticos
+
+    console.log(numberA + numberB);  /* 3 + 2 = 5 */
+    console.log("----------");
+    console.log(numberA - numberB );   /* 3 - 2 = 1 */
+    console.log("----------");
+    console.log(numberA * numberB );  /* 3 * 2 = 6 */
+    console.log("----------");
+    console.log(numberA ** numberB );  /* 3 ** 2 = 9 */
+    console.log("----------");
+    console.log(numberA / numberB );   /* 3 / 2 = 1.5 */
+    console.log("----------");
+    console.log(numberA % numberB );   /* 3 % 2 = 1 */
+    console.log("----------");
+    console.log(numberA + stringA);  /* imprimirá 3Webdesign em Foco */
+    console.log("----------");
+
+    for(let i=10; i>5; i--){
+        console.log(i);
+    }
+    console.log("----------");
+
+    let info = document.getElementById("info");
+
+    numberA = 3;
+    numberB = 2;
+    numberC = '3';
+    stringA = 'Webdesign em Foco';
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      info.innerHTML = `${numberA} + ${numberB} = ${numberA + numberB}`;
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      info.innerHTML = `${numberA} - ${numberB} = ${numberA - numberB}`;
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      info.innerHTML = `${numberA} * ${numberB} = ${numberA * numberB}`;
+    })
+
+    document.getElementById("bt-4").addEventListener("click", function(){
+      info.innerHTML = `${numberA} ** ${numberB} = ${numberA ** numberB}`;
+    })
+
+    document.getElementById("bt-5").addEventListener("click", function(){
+      info.innerHTML = `${numberA} / ${numberB} = ${numberA / numberB}`;
+    })
+
+    document.getElementById("bt-6").addEventListener("click", function(){
+      info.innerHTML = `${numberA} % ${numberB} = ${numberA % numberB}`;
+    })
+
+    document.getElementById("bt-7").addEventListener("click", function(){
+      info.innerHTML = `${numberA} + ${stringA} = ${numberA + stringA}`;
+    })
+
+  </script>
+
+</body>
+</html>

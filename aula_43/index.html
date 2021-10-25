@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 15px 0px 15px 10px;
+      }
+      button, input[type=submit]{
+        padding: 10px;
+        font-size: 18px;
+        margin: 0px 10px;
+        cursor: pointer;
+      }
+      input{
+        margin: 20px 10px 5px 10px;
+        font-size: 18px;
+        display: block;
+      }
+      #info{
+        font-size: 20px;
+        margin: 20px 10px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+      }
+  </style>
+  <title>Debounce</title>
+</head>
+
+<body>
+
+  <h2>Debounce</h2>
+
+  <form name='form' id='form' method="get" action="controller.php">
+    <input type="text" name="search" id="search" placeholder="Search">
+  </form>
+
+  <div id="info"></div>
+
+  <script src="script1.js"></script>
+</body>
+
+</html>

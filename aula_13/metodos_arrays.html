@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 10px 10px;
+      }
+      table{
+        margin: 10px;
+        width: 85%;
+        border: none;
+      }
+      tr, td{
+        border: none;
+        font-size: 16px;
+      }
+      td{
+        padding: 3px;
+      }
+      button{
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info{
+        margin: 10px;
+        font-size: 18px;
+      }
+      p{
+        margin: 10px;
+        font-size: 18px;
+      }
+      .destaque{
+        color: red;
+      }
+      .destaque2{
+        color: blue;
+      }
+  </style>
+  <title>métodos para manipulação de arrays</title>
+</head>
+<body>
+
+    <h3>Métodos para manipulação de arrays - Parte 3</h3>
+
+    <p>let arrInicial = [3, 6, 2, 4, 0, 1, 7, 25];</p>
+    <p>let arrNew = [];</p>
+
+    <hr>
+
+    <table>
+        <tr>
+            <td><span class="destaque2">unshift:</span> insere um elemento no início do array</td>
+            <td><span class="destaque2">shift:</span> remove o elemento do início de um array</td>
+        </tr>
+        <tr>
+            <td><span class="destaque2">splice:</span> remove ou insere elemento(s) no array</td>
+            <td><span class="destaque2">reduce:</span> executa uma ação percorrendo os elementos do array</td>
+        </tr>
+        <tr>
+            <td><span class="destaque2">reduceRight</span> idem ao reduce porém, da direita para a esquerda</td>
+            <td><span class="destaque2">slice:</span> A partir do trecho especificado de um array, cria um novo array</td>
+        </tr>
+        <tr>
+            <td><span class="destaque2">sort:</span> organiza um array em ordem crescente</td>
+            <td><span class="destaque2">toString:</span> transforma um array em uma string</td>
+        </tr>
+      </table>
+
+    <hr>
+
+    <button id="bt-1">arrInicial</button>
+    <button id="bt-2">arrNew</button>
+    <button id="bt-3">unshift</button>
+    <button id="bt-4">shift</button>
+    <button id="bt-5">splice</button>
+    <button id="bt-6">reduce</button>
+    <button id="bt-7">reduceRight</button>
+    <button id="bt-8">slice</button>
+    <button id="bt-9">sort</button>
+    <button id="bt-10">toString</button>
+
+    <div id="info"></div>
+
+    <script>
+
+    let arrInicial = [3, 6, 2, 4, 0, 1, 7, 25];
+    let arrNew = [];
+
+    let info = document.getElementById("info");
+
+    function exibeArrayInicial(){
+
+        if(arrInicial.length === 0){
+            info.innerHTML += "arrIncial está vazio";
+        } else {
+            arrInicial.forEach((elem, index) => {
+                if(typeof elem == "number"){
+                    info.innerHTML += `arrInicial[${index}] = ${elem}` + "<br>"
+                } else if(typeof elem == "string"){
+                    info.innerHTML += `arrInicial[${index}] = "${elem}"` + "<br>"
+                }
+            });
+        }
+    }
+
+    function exibeArrayNew(){
+
+        if(arrNew.length === 0){
+            info.innerHTML += "arrNew está vazio";
+        } else {
+            arrNew.forEach((elem, index) => {
+                if(typeof elem == "number"){
+                    info.innerHTML += `arrNew[${index}] = ${elem}` + "<br>"
+                } else if(typeof elem == "string"){
+                    info.innerHTML += `arrNew[${index}] = "${elem}"` + "<br>"
+                }
+            });
+        }
+    }
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrInicial = [3, 6, 2, 4, 0, 1, 7, 25];
+
+        console.log(arrInicial);
+        exibeArrayInicial();
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        console.log(arrNew);
+        exibeArrayNew();
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrInicial.unshift(50);
+        console.log(arrInicial);
+        exibeArrayInicial();
+    })
+
+    document.getElementById("bt-4").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrInicial.shift();
+        console.log(arrInicial);
+        exibeArrayInicial();
+    })
+
+    document.getElementById("bt-5").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "<span class='destaque2'>arrInicial.splice(2)</span>: remove todos os elementos, a partir do elemento de indice 2: <br>";
+
+        arrInicial.splice(2);  /* remove todos os elementos, a partir do elemento de indice 2*/
+        console.log(arrInicial);
+
+        exibeArrayInicial();
+
+        info.innerHTML += "<br>";
+
+        arrInicial = [3, 6, 2, 4, 0, 1, 7, 25];
+
+        info.innerHTML += "<span class='destaque2'>arrInicial.splice(2, 4)</span>: remove 4 elementos, a partir do elemento de indice 2: <br>";
+
+        arrInicial.splice(2, 4);  /* remove 4 elementos a partir do elemento de indice 2*/
+        console.log(arrInicial);
+
+        exibeArrayInicial();
+
+        info.innerHTML += "<br>";
+
+        arrInicial = [3, 6, 2, 4, 0, 1, 7, 25];
+
+        info.innerHTML += "<span class='destaque2'>arrInicial.splice(2, 0, 'a', 'b', 'c')</span>: insere 3 elementos, a partir do elemento de indice 2: <br>";
+
+        arrInicial.splice(2, 0, 'a', 'b', 'c');  /* insere 3 elementos ('a', 'b', 'c'), a partir do elemento de indice 2*/
+        console.log(arrInicial);
+
+        exibeArrayInicial();
+
+        arrInicial = [3, 6, 2, 4, 0, 1, 7, 25];
+    })
+
+    document.getElementById("bt-6").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "Soma dos elementos de <span class='destaque2'>arrInicial</span>, a partir da esquerda: .......... ";
+
+        let soma = arrInicial.reduce((x, y) => {
+          return x + y;
+        });
+
+        console.log("Soma dos elementos de arrInicial, a partir da esquerda: " + soma);
+        info.innerHTML += "<span class='destaque'>" + soma + "</span>";
+    })
+
+    document.getElementById("bt-7").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "Subtração dos elementos de <span class='destaque2'>arrInicial</span>, a partir da direita: ......... ";
+
+        let sub = arrInicial.reduceRight((x, y) => {
+          return x - y;
+        });
+
+        console.log("Subtração dos elementos de arrInicial, a partir da direita: " + sub);
+        info.innerHTML += "<span class='destaque'>" + sub + "</span>";
+
+    })
+
+    document.getElementById("bt-8").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "arrNew = arrInicial.slice(3, 6):<br><br>";
+
+        arrNew = arrInicial.slice(3, 6);
+        console.log("arrNew = arrInicial.slice(3, 6):");
+        console.log(arrNew);
+
+        exibeArrayNew();
+    })
+
+    document.getElementById("bt-9").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrInicial.sort(function(x, y){
+          return parseInt( x ) - parseInt( y );
+        });
+
+        console.log(arrInicial);
+
+        exibeArrayInicial();
+    })
+
+    document.getElementById("bt-10").addEventListener("click", function(){
+        console.clear();
+        info.innerHTML = "";
+
+        arrInicial = [3, 6, 2, 4, 0, 1, 7, 25];
+
+        let arrStr = arrInicial.toString();
+        console.log(arrStr);
+        info.innerHTML = arrStr;
+    })
+
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body{
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      h2, h3{
+        margin: 20px 10px;
+      }
+      button{
+        padding: 10px;
+        font-size: 18px;
+        margin: 10px;
+        cursor: pointer;
+      }
+      #info{
+        margin: 10px;
+        font-size: 22px;
+      }
+  </style>
+  <title>Funções</title>
+</head>
+<body>
+
+  <h2>Funções</h2>
+
+  <button id="bt-1">Literal tunction</button>
+  <button id="bt-2">Expression Function</button>
+  <button id="bt-3">Métodos de objeto</button>
+  <button id="bt-4">Clousures</button>
+  <button id="bt-5">Arrow functions</button>
+
+  <div id="info"></div>
+
+  <script>
+
+    /* Função literal */
+
+    function litMult(x,y)
+    {
+        let result = x * y;
+        return result;
+    }
+
+    /* Função expressada */
+
+    let expMult = function(x, y)
+    {
+      let result = x * y;
+      return result;
+    }
+
+    console.log(expMult(3, 15));
+
+    console.log("--------------------------------");
+
+    /* Métodos de objetos */
+
+    let objMult={
+      func:function(x, y){
+          let result = x * y;
+          return result;
+      }
+    }
+
+    console.log(objMult.func(4, 2));
+
+    console.log("--------------------------------");
+
+    /* Funções aninhadas ou clousures */
+
+    //Set name for users
+    function myName(val)
+    {
+        let name;
+
+        function setName()
+        {
+            if(val == 1){
+            name='Thiago';
+            }else if(val == 2){
+            name='Thais';
+            }else{
+            name='Nenhum dado foi disponibilizado';
+            }
+            return name;
+        }
+        return setName();
+    }
+
+    console.log(myName(1));
+
+    console.log("--------------------------------");
+
+    /* Arrow functions */
+
+    function sum(x,y)
+    {
+        return x+y;
+    }
+    console.log(sum(10,5));
+
+    let sumArrow = (x, y) => {
+        return x + y;
+    }
+    console.log(sumArrow(3,4));
+
+    let sumArrow2 = (x, y) => x + y;
+    console.log(sumArrow2(6,3));
+
+    console.log("--------------------------------");
+
+    let info = document.getElementById("info");
+
+    document.getElementById("bt-1").addEventListener("click", function(){
+      console.clear();
+      console.log("litMult(10,2) = " + litMult(10,2));
+      info.innerHTML = "litMult(10,2) = " + litMult(10,2);
+    })
+
+    document.getElementById("bt-2").addEventListener("click", function(){
+      console.clear();
+      console.log("expMult(3,15) = " + expMult(3, 15));
+      info.innerHTML = "expMult(3,15) = " + expMult(3, 15);
+    })
+
+    document.getElementById("bt-3").addEventListener("click", function(){
+      console.clear();
+      console.log("objMult.func(4, 2) = " + objMult.func(4, 2));
+      info.innerHTML = "objMult.func(4, 2) = " + objMult.func(4, 2);
+    })
+
+    document.getElementById("bt-4").addEventListener("click", function(){
+      console.clear();
+      info.innerHTML = "";
+
+      console.log("myName(1) = " + myName(1));
+      info.innerHTML = `myName(1) = ${myName(1)}` + "<br>";
+      console.log("myName(2) = " + myName(2));
+      info.innerHTML += `myName(2) = ${myName(2)}` + "<br>";
+      console.log("myName(3) = " + myName(3));
+      info.innerHTML += `myName(3) = ${myName(3)}` + "<br>";
+    })
+
+    document.getElementById("bt-5").addEventListener("click", function(){
+      console.clear();
+      console.log("sumArrow(3,4) = " + sumArrow(3,4));
+      info.innerHTML = "sumArrow(3,4) = " + sumArrow(3,4);
+    })
+
+  </script>
+</body>
+</html>
