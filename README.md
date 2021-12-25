@@ -1,5 +1,8 @@
 # Curso de Javascript  
 ## Webdesign em Foco (Thiago Antunes)  
+
+### [Vídeos do curso](https://www.youtube.com/watch?v=7b2A0iiT5i8&list=PLbnAsJ6zlids-RjpuHaX6Kj0hY6hx71Qj)
+
 ### Lista de aulas  
 
 Aula 01 - Introdução  
